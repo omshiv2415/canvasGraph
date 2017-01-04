@@ -8,13 +8,13 @@
 
 ISO3166::Country.all.shuffle.first(50).each do |country|
   Country.create({name: country.name})
- 100.times { Sporter.create({
+ 
+end
+100.times { Sporter.create({
              name: Faker::Name.name,
              age: rand(18..50),
              country_id: rand(1..50)
          }) }
-end
-
 Competition.all.each do |competition|
   sporters = Sporter.all.shuffle.first(6)
   (1..6).each do |place|
